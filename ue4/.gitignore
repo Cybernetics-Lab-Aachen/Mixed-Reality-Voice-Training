@@ -70,9 +70,5 @@ DerivedDataCache/*
 *.VC.opendb
 *.VC.db 
 
-# Don't ignore files in ThirdParty
-!ThirdParty/mosquitto/*
-!ThirdParty/mosquitto/devel/*
-
-# Don't add FMOD Plugin into VCS
-Plugins/FMODStudio 
+# Third Party Binary Files
+!Plugins\FMODStudio\Binaries/**/*
