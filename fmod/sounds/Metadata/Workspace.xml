@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.09.00">
+    <object class="Workspace" id="{af9a5a81-c8d4-45ea-9089-7cd5648243ca}">
+        <property name="builtBanksOutputDirectory">
+            <value>../../ue4/Content/FMOD</value>
+        </property>
+        <relationship name="masterEventFolder">
+            <destination>{29080d86-a979-43aa-b532-5b92af1d2f5f}</destination>
+        </relationship>
+        <relationship name="masterTagFolder">
+            <destination>{3cb6fb40-76e7-4bce-9895-796450f71192}</destination>
+        </relationship>
+        <relationship name="masterBankFolder">
+            <destination>{fbc8c181-9a09-45ac-bdd2-51b61e2bdd9c}</destination>
+        </relationship>
+        <relationship name="masterAssetFolder">
+            <destination>{4f9bbe1c-7fc2-4041-9234-7f0f6dfe7971}</destination>
+        </relationship>
+        <relationship name="mixer">
+            <destination>{5e92afe8-5326-417f-8d09-03b8eae2627a}</destination>
+        </relationship>
+        <relationship name="platforms">
+            <destination>{23b3d162-2609-4077-a656-ec1a33b122a7}</destination>
+        </relationship>
+    </object>
+    <object class="Platform" id="{23b3d162-2609-4077-a656-ec1a33b122a7}">
+        <property name="hardwareType">
+            <value>0</value>
+        </property>
+        <property name="name">
+            <value>Desktop</value>
+        </property>
+        <property name="subDirectory">
+            <value>Desktop</value>
+        </property>
+        <property name="speakerFormat">
+            <value>6</value>
+        </property>
+    </object>
+</objects>
