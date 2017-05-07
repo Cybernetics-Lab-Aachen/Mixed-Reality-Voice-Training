@@ -68,7 +68,4 @@ DerivedDataCache/*
 
 # VisualStudio2015 Update2 Intellisense Database
 *.VC.opendb
-*.VC.db 
-
-# Third Party Binary Files
-!Plugins\FMODStudio\Binaries/**/*
+*.VC.db
