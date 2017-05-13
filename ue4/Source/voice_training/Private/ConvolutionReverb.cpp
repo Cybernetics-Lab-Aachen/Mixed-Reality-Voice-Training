@@ -17,6 +17,20 @@ void AConvolutionReverb::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	Init();
+}
+
+// Called every frame
+void AConvolutionReverb::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	Update();
+}
+
+// Initialize FMOD
+void AConvolutionReverb::Init()
+{
 	if (IFMODStudioModule::IsAvailable())
 	{
 		FMOD::Studio::System* StudioSystem = IFMODStudioModule::Get().GetStudioSystem(EFMODSystemContext::Runtime);
@@ -32,18 +46,18 @@ void AConvolutionReverb::BeginPlay()
 			/*
 			Determine latency in samples.
 			*/
-			
+
 			LowLevelSystem->getRecordDriverInfo(DEVICE_INDEX, nullptr, 0, nullptr, &nativeRate, nullptr, &nativeChannels, nullptr);
 
 			driftThreshold = (nativeRate * DRIFT_MS) / 1000;       /* The point where we start compensating for drift */
 			desiredLatency = (nativeRate * LATENCY_MS) / 1000;     /* User specified latency */
 			adjustedLatency = desiredLatency;                      /* User specified latency adjusted for driver update granularity */
-			actualLatency = desiredLatency;                                 /* Latency measured once playback begins (smoothened for jitter) */
-		
+			actualLatency = desiredLatency;                        /* Latency measured once playback begins (smoothened for jitter) */
 
-			/*
-			Create user sound to record into, then start recording.
-			*/
+
+																   /*
+																   Create user sound to record into, then start recording.
+																   */
 			FMOD_CREATESOUNDEXINFO exinfo = { 0 };
 			exinfo.cbsize = sizeof(FMOD_CREATESOUNDEXINFO);
 			exinfo.numchannels = nativeChannels;
@@ -54,21 +68,13 @@ void AConvolutionReverb::BeginPlay()
 			LowLevelSystem->createSound(nullptr, FMOD_LOOP_NORMAL | FMOD_OPENUSER, &exinfo, &Sound);
 
 			LowLevelSystem->recordStart(DEVICE_INDEX, Sound, true);
-			
+
 			Sound->getLength(&soundLength, FMOD_TIMEUNIT_PCM);
 		}
 	}
 }
 
-// Called every frame
-void AConvolutionReverb::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-	Update();
-}
-
-// Update the Recording process
+// Update recording and playback
 void AConvolutionReverb::Update()
 {
 	if (LowLevelSystem)
