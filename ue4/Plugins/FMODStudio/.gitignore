@@ -1,2 +1,5 @@
 # Build Files
 Intermediate
+
+# Do not ignore Binaries
+!Binaries/**/*
