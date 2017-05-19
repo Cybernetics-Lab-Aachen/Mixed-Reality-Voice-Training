@@ -35,6 +35,10 @@ private:
 	int actualLatency = 0;
 
 	unsigned int soundLength = 0;
+public:
+	UPROPERTY(EditAnywhere)
+	bool Enabled = true;
+
 public:	
 	// Sets default values for this actor's properties
 	AConvolutionReverb();

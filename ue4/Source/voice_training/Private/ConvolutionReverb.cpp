@@ -77,7 +77,7 @@ void AConvolutionReverb::Init()
 // Update recording and playback
 void AConvolutionReverb::Update()
 {
-	if (LowLevelSystem)
+	if (Enabled && LowLevelSystem)
 	{
 		LowLevelSystem->update();
 
