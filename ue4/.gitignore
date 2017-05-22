@@ -45,6 +45,7 @@ Binaries/*
 
 # Builds
 Build/*
+WindowsNoEditor/*
 
 # Don't ignore icon files in Build
 !Build/**/*.ico
