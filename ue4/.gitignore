@@ -45,6 +45,7 @@ Binaries/*
 
 # Builds
 Build/*
+WindowsNoEditor/*
 
 # Don't ignore icon files in Build
 !Build/**/*.ico
@@ -68,11 +69,4 @@ DerivedDataCache/*
 
 # VisualStudio2015 Update2 Intellisense Database
 *.VC.opendb
-*.VC.db 
-
-# Don't ignore files in ThirdParty
-!ThirdParty/mosquitto/*
-!ThirdParty/mosquitto/devel/*
-
-# Don't add FMOD Plugin into VCS
-Plugins/FMODStudio 
+*.VC.db
